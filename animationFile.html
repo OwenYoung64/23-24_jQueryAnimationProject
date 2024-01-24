@@ -21,7 +21,7 @@
             width: 100px;
             height: 100px;
             position: absolute;
-            left: 800px;
+            left: 600px;
             top: 500px;
         }
         #pipe {
@@ -32,19 +32,41 @@
             left: 400px;
             top: 150px;
         }
-        #button {
-            width: 200px;
-            height: 200px;
+        #button1 {
+            width: 110px;
+            height: 50px;
             position: absolute;
             left: 50px;
             top: 100px;
+        }
+        #button2 {
+            width: 110px;
+            height: 50px;
+            position: absolute;
+            left: 50px;
+            top: 160px;
+        }
+        #button3 {
+            width: 110px;
+            height: 50px;
+            position: absolute;
+            left: 50px;
+            top: 220px;
         }
         #water {
             width: 100px;
             height: 100px;
             position: absolute;
             left: 600px;
-            top: 75px;
+            top: 125px;
+            opacity: 0;
+        }
+        #sun {
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            left: 1000px;
+            top: 100px;
             opacity: 0;
         }
     </style>
@@ -53,7 +75,9 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <img src="img/button.webp" id="button"/>
+            <button type="button" id="button1">Scene One</button>
+            <button type="button" id="button2">Scene Two</button>
+            <button type="button" id="button3">Scene Three</button>
         </div>
     </div>
     <div class="row">
@@ -63,16 +87,19 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <img src="img/water.jpg" id="water"/>
+            <img src="img/spider.png" id="spider"/>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <img src="img/spider.png" id="spider"/>
+            <img src="img/water3.png" id="water"/>
         </div>
     </div>
-
-
+    <div class="row">
+        <div class="col-12">
+            <img src="img/sun.jpg" id="sun"/>
+        </div>
+    </div>
 
 </div>
 
@@ -80,21 +107,40 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
-        $("#button").click(function() {
-            $("#spider").animate({
-                left: '-=200px',
-            });
-
+        $("#button1").click(function() {
             $("#spider").animate({
                 top: '-=300px',
             });
+        });
 
+        $("#button2").click(function() {
             $("#water").animate({
-                top: '+=300px',
+                opacity: '1',
             });
+            $("#spider").animate({
+                top: '+=50px',
+            });
+            $("#water").animate({
+                top: '+=350px',
+            });
+            $("#spider").animate({
+                top: '+=250px',
+            });
+        });
 
-
-
+        $("#button3").click(function() {
+            $("#sun").animate({
+                opacity: '1',
+            });
+            $("#water").animate({
+                opacity: '0',
+            });
+            $("#water").animate({
+                top: '-=350px',
+            });
+            $("#sun").animate({
+                opacity: '0',
+            });
         });
     });
 </script>
